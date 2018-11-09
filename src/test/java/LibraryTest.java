@@ -4,6 +4,7 @@
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -15,11 +16,35 @@ public class LibraryTest {
 
     @Test public void testCoordinatesMethod() {
         Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherByCoordinates("37.81","144.96"));
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherByCoordinates("-37.81","144.96"));
     }
 
     @Test public void testZipMethod() {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherByZip("94040", "us"));
+    }
+
+    @Test public void testIDMethod() {
+        Library classUnderTest = new Library();
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherByCityID("2158177"));
+    }
+
+    @Test public void testBoxMethod() {
+        Library classUnderTest = new Library();
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherForCitiesInRectangle("12", "32","15", "37", "10"));
+    }
+
+    @Test public void testCircleMethod() {
+        Library classUnderTest = new Library();
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherForCitiesInCircle("-37.81","144.96","10"));
+    }
+
+    @Test public void testGroupIDMethod() {
+        Library classUnderTest = new Library();
+        ArrayList<String> idList = new ArrayList<>();
+        idList.add("524901");
+        idList.add("703448");
+        idList.add("2643743");
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.getWeatherForCitiesByID(idList));
     }
 }
